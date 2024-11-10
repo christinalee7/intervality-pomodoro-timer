@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Intervality Timer</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+        href="https://fonts.googleapis.com/css2?family=Noto+Sans+Gurmukhi:wght@100..900&family=Quicksand:wght@300..700&display=swap"
+        rel="stylesheet" />
+    <script src="https://kit.fontawesome.com/7a42259443.js" crossorigin="anonymous"></script>
+    <link rel="icon" href="favicon.ico" type="image/x-icon">
+    <link rel="stylesheet" href="style.css">
+    <script src="script.js" defer></script>
+</head>
+
+<body>
+    <audio id="notification-sound">
+        <source src="243701__ertfelda__correct.wav" type="audio/wav">
+    </audio>
+
+    <div>
+        <nav>
+            <label id="pomodoroCount">Pomodoros: 0</label>
+            <label id="shortCount">Short Breaks: 0</label>
+            <label id="longCount">Long Breaks: 0</label>
+        </nav>
+            
+        <a href="index.html">
+            <h1><p id="line1">Intervality</p></h1>
+            <h3><p id="line2">Pomodoro Timer</p></h3><br>
+        </a>
+        
+        <span class="circle">
+            <div><h1 id="time">00:00</h1></div>
+        </span>
+
+        <div id="timer">
+            <button id="start" onclick="startTimer()"><i class="fa-solid fa-play"></i></button>
+            <button id="restart" onclick="resetTimer()"><i class="fa-solid fa-rotate-right"></i></button>
+
+            <div class="open-clear-records-wrapper">
+                <button class="open-clear-records-button" onclick="openClearRecords()"><i class="fa-solid fa-trash"></i></button>
+            </div>
+
+            <div class="clear-records-overlay">
+                <div class="clear-records-wrapper">
+                    <div class="close-clear-records-wrapper">
+                        <button class="close-clear-records-button">
+                            <i class="fa-solid fa-x"></i>
+                        </button>
+                    </div>
+                    <div class="clear-records-content">
+                        <h2>Clear all records?</h2>
+                        <button id="clear" onclick="clearRecords(); closeClearRecords()"></i>Yes</button>
+                        <button id="clear" onclick="closeClearRecords()"></i>No</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="open-settings-wrapper">
+        <button class="open-settings-button" onclick="openSettings()"><i class="fa-solid fa-gear"></i></button>
+    </div>
+
+    <div class="settings-overlay">
+        <div class="settings-wrapper">
+            <div class="close-settings-wrapper">
+                <button class="close-settings-button">
+                    <i class="fa-solid fa-x"></i>
+                </button>
+            </div>
+
+            <div class="settings-content">
+                <h2>Settings</h2>
+                <label for="workDuration">Pomodoro Time</label>
+                <input type="number" id="workDuration" value="25" min="1" style="width: 40px"><br><br>
+
+                <label for="shortDuration">Short Break</label>
+                <input type="number" id="shortDuration" value="5" min="1" style="width: 40px"><br><br>
+                    
+                <label for="longDuration">Long Break</label>
+                <input type="number" id="longDuration" value="15" min="2" style="width: 40px"><br><br>
+                
+                <label for="cycleDuration">Break Interval</label>
+                <input type="number" id="cycleDuration" value="4" min="2" style="width: 40px"><br><br>
+
+                <label for="autoStart">Auto Start Timer
+                    <label class="switch">
+                        <input type="checkbox" id="autoStart">
+                        <span class="slider round"></span>
+                    </label>
+                </label>
+            </div>
+        </div>
+    </div>
+
+    <div class="toast">
+        <div class="pomodoro-toast-wrapper">
+            <div class="pomodoro-toast-completed">
+                <div class="pomodoro-toast-completed-icon">
+                    <i class="fa-solid fa-check"></i>
+                </div>
+                <div class="pomodoro-toast-completed-content">
+                    <p>Pomodoro Complete</p>
+                    <p>Take a break!</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="break-toast-wrapper">
+            <div class="break-toast-completed">
+                <div class="break-toast-completed-icon">
+                    <i class="fa-solid fa-clock"></i>
+                </div>
+                <div class="break-toast-completed-content">
+                    <p>End of Break</p>
+                    <p>Time to focus!</p>
+                </div>
+            </div>
+        </div>
+    </div>
+    </body>
+</html>
